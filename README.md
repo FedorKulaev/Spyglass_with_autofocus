@@ -1,7 +1,6 @@
 # Команда
 Кулаев Фёдор, группа Б04-303 
 
-
 Ветров Алексей, группа Б04-303
 
 # Цель проекта
@@ -17,9 +16,13 @@ https://binokl.shop/product/free-focus-bpsh-8x40 и другие
 Объектив - линза для очков на 3 дптр (https://market.yandex.ru/product--linza-dlia-ochkov-sfericheskaia-1sht-ice-maker-d-65-index-1-70/1884922652?sku=102071359570&uniqueId=964545&showOriginalKmEmptyOffer=1)
 
 Окуляр - линза для очков на 16 дптр (https://market.yandex.ru/product--linza-dlia-ochkov-sfericheskaia-1sht-ice-maker-d-60-index-1-70/1884926108?sku=102071359528&uniqueId=964545&showOriginalKmEmptyOffer=1)
+
 Мотор DC205 RPM 
+
 Драйвер к мотору TB6612FNG
+
 Камера Pi-camera module 3
+
 Микрокомпьютер Raspberry Pi Zero v1.3 (в процессе настройки использовалась Raspberry Pi 4 model B)
 
 # Трудности 
