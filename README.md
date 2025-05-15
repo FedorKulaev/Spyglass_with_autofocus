@@ -27,7 +27,7 @@
 
 PD-триггер для получения нужного напряжения с powerbank (https://www.ozon.ru/product/trigger-modul-fastcharge-9v-12v-15v-20v-1156203022/?reviewsVariantMode=2)
 
-powerbank - 
+powerbank
 
 
 # Трудности 
@@ -37,7 +37,7 @@ powerbank -
 
 
 # Существующие аналоги
-https://binokl.shop/product/free-focus-bpsh-8x40 и другие
+(https://www.amazon.com/Bushnell-Waterproof-Spectator-Binocular-10x50mm/dp/B07353SGQG/ref=sr_1_1?dib=eyJ2IjoiMSJ9.P-iXW86EkNQRRb_yhQdGQklRsZmOZBnbjMBHXZ-HVRj_jMqyV9iNJK3zkb-gl1oLZg_DJqaSQu_VtnEzJ1LT3hpJkmFMzJTtmckTppgSfVUg4rbgBmaHCn5x6uvtdMW-w1fjW0iNGG-HielwBWobSbSN34vpxXrCPYL49aFq8YKl9eZ1dcsXSahYJdS2GgbsKflhcc_d7e4hytqYKhzRZeX8bGFT0TDznpCeqbJtUCc.fYeXbqNwObB_oCzg0FsGBB6QyMDUuyaUijjwpEDAiHo&dib_tag=se&keywords=autofocus%2Bbinoculars&qid=1747321709&sr=8-1&th=1) и другие
 
 
 # Фото
