@@ -37,7 +37,7 @@ powerbank
 
 
 # Существующие аналоги
-(https://www.amazon.com/s?k=autofocus+binoculars)
+<[(https://www.amazon.com/s?k=autofocus+binoculars)](https://www.amazon.com/Bushnell-Waterproof-Spectator-Binocular-10x50mm/dp/B07353SGQG/ref=sr_1_2?dib=eyJ2IjoiMSJ9.P-iXW86EkNQRRb_yhQdGQklRsZmOZBnbjMBHXZ-HVRhW5Rf-N8rl2i5FDKiHmXHR20MRqxE30GU0fvmaiHydaFRAsWpPJ_s9l78y7PAjW7kg4rbgBmaHCn5x6uvtdMW-w1fjW0iNGG-HielwBWobSbSN34vpxXrCPYL49aFq8YKl9eZ1dcsXSahYJdS2GgbsKflhcc_d7e4hytqYKhzRZeX8bGFT0TDznpCeqbJtUCc.bEGMcOQOpADVm-uDvyADaEo49JktgrikeFhsy2YIh9o&dib_tag=se&keywords=autofocus%2Bbinoculars&qid=1747322670&sr=8-2&th=1)>
 
 (https://binokl.shop/product/free-focus-bpsh-8x40)
 
