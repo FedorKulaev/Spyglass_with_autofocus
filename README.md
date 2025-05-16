@@ -46,6 +46,7 @@ powerbank
 
 
 # Фото
+![photo_2025-05-16 11 59 47](https://github.com/user-attachments/assets/795c9990-0035-4cd6-ba6d-69b25dae7228)
 
 
 # Видео
