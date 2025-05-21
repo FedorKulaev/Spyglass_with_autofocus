@@ -50,3 +50,10 @@ powerbank
 
 
 # Видео
+
+
+https://github.com/user-attachments/assets/4ccdcfca-6943-4ccf-b469-e8c1348ee5a3
+
+
+
+
