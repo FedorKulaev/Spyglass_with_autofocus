@@ -26,7 +26,7 @@
 
 Камера Pi-camera module 3
 
-Микрокомпьютер Raspberry Pi Zero v1.3 (в процессе настройки использовалась Raspberry Pi 4 model B)
+Микрокомпьютер Raspberry Pi 4 model B (изначально планировалась Raspberry Pi Zero v1.3)
 
 PD-триггер для получения нужного напряжения с powerbank (https://www.ozon.ru/product/trigger-modul-fastcharge-9v-12v-15v-20v-1156203022/?reviewsVariantMode=2)
 
