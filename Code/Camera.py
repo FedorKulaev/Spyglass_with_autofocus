@@ -5,7 +5,8 @@ camera = Picamera2()
 preview_config = camera.create_preview_configuration()
 camera.configure(preview_config)
 camera.start(show_preview=True)
-for i in range(12, 18):
-    camera.set_controls({"LensPosition": i/2})
+camera.set_controls({"AfMode": 0})
+for i in range(7, 13):
+    camera.set_controls({"LensPosition": i})
     print(i)
-    sleep(1)
+    sleep(2)

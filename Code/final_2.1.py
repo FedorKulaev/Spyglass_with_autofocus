@@ -8,6 +8,7 @@ AIN1 = 17   # IN1 (направление)
 AIN2 = 27   # IN2 (направление)
 PWMA = 18   # PWM (скорость)
 STBY = 22   # STBY (включение драйвера)
+conc = 4
 pi = pigpio.pi()
 
 # Настройка пинов
@@ -15,6 +16,8 @@ pi.set_mode(AIN1, pigpio.OUTPUT)
 pi.set_mode(AIN2, pigpio.OUTPUT)
 pi.set_mode(STBY, pigpio.OUTPUT)
 pi.set_mode(PWMA, pigpio.OUTPUT)
+pi.set_mode(conc, pigpio.INPUT)
+pi.set_pull_up_down(conc, pigpio.PUD_DOWN)
 
 # Включить драйвер
 pi.write(STBY, 1)
@@ -72,6 +75,11 @@ def next_step(d):
     time.sleep(0.07)
     return rez()
 
+def turn_off():
+    pi.write(AIN1, 0)
+    pi.write(AIN2, 0)
+    pi.write(STBY, 0)
+    
 picam2.set_controls({"LensPosition": 8})  # Подобрал наиболее близкое к глазу
 
 d = 1
@@ -80,6 +88,8 @@ print(current)
 first = True
 try:
     for i in range(50):
+        if pi.read(conc) == 0:
+            raise ValueError
         next_count = next_step(d)
         print(d, next_count)
         if current > next_count:
@@ -90,11 +100,13 @@ try:
                 next_step(-d)
                 break
         current = next_step(d)
-        
+
+except ValueError:
+    turn_off()
+    print("Замкнуло концевик")
 finally:
-    pi.write(AIN1, 0)
-    pi.write(AIN2, 0)
-    pi.write(STBY, 0)  # Выключить драйвер
+    turn_off  # Выключить драйвер
     pi.stop()
     picam2.stop()
+
 

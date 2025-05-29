@@ -8,6 +8,8 @@ AIN1 = 17   # IN1 (направление)
 AIN2 = 27   # IN2 (направление)
 PWMA = 18   # PWM (скорость)
 STBY = 22   # STBY (включение драйвера)
+conc = 4
+
 pi = pigpio.pi()
 
 # Настройка пинов
@@ -15,7 +17,8 @@ pi.set_mode(AIN1, pigpio.OUTPUT)
 pi.set_mode(AIN2, pigpio.OUTPUT)
 pi.set_mode(STBY, pigpio.OUTPUT)
 pi.set_mode(PWMA, pigpio.OUTPUT)
-
+pi.set_mode(conc, pigpio.INPUT)
+pi.set_pull_up_down(conc, pigpio.PUD_DOWN)
 # Включить драйвер
 pi.write(STBY, 1)
 
@@ -43,11 +46,11 @@ roi_x, roi_y = 910, 520
 # Конфигурация камеры
 config = picam2.create_preview_configuration(
     main={"size": (1920, 1080), "format": "RGB888"},
-    controls={"AfMode": 0, "LensPosition": 0.0}  # Ручной режим фокуса
+    controls={"AfMode": 0, "LensPosition": 10}  # Ручной режим фокуса
 )
 picam2.configure(config)
 picam2.start()
-picam2.set_controls({"LensPosition": 0})
+
 def calculate_fom(image_roi):
     # Конвертация в grayscale (формула NTSC)
     gray = image_roi[:,:,0] * 0.299 + image_roi[:,:,1] * 0.587 + image_roi[:,:,2] * 0.114
@@ -69,32 +72,59 @@ def rez():
 # Функция немного двигает линзу в направлении d и выводит новое значение резкости
 def next_step(d):
     motor_control(70, d)
-    time.sleep(0.07)
-    return rez()
+    time.sleep(0.03)
+    motor_control(70, 0)
+    r = rez()
+    print(d, r)
+    return r
 
-picam2.set_controls({"LensPosition": 8})  # Подобрал наиболее близкое к глазу
+def turn_off():
+    pi.write(AIN1, 0)
+    pi.write(AIN2, 0)
+    pi.write(STBY, 0)
+  # Подобрал наиболее близкое к глазу
 
 d = 1
-current = rez()
-print(current)
 first = True
+
 try:
+    if pi.read(conc) == 0:
+        raise ValueError
+    current = rez()
+    print(current)
+    next1 = next_step(d)
+    if pi.read(conc) == 0:
+        raise ValueError
+    
     for i in range(50):
-        next_count = next_step(d)
-        print(d, next_count)
-        if current > next_count:
+        next2 = next_step(d)
+        
+        if pi.read(conc) == 0:
+            raise ValueError
+
+        if current > next2:
             if first:
                 d = -d
                 first = False
+                current = next_step(d)
+                current = next_step(d)
+                next1 = next_step(d)
+                
             else:
                 next_step(-d)
+                next_step(-d)
                 break
-        current = next_step(d)
+        if pi.read(conc) == 0:
+            raise ValueError
         
+        current = next1
+        next1 = next2
+except ValueError:
+    turn_off()
+    print("Замкнуло концевик")
 finally:
-    pi.write(AIN1, 0)
-    pi.write(AIN2, 0)
-    pi.write(STBY, 0)  # Выключить драйвер
+    turn_off()  # Выключить драйвер
     pi.stop()
     picam2.stop()
+
 
